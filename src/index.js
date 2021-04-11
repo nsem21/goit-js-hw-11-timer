@@ -1,3 +1,4 @@
+const TARGET_DATE = 'Jul 17, 2021';
 const ref = {
     day: document.querySelector('.value[data-value="days"]'),
     hour: document.querySelector('.value[data-value="hours"]'),
@@ -17,9 +18,8 @@ class CountdownTimer {
             const time = this.getReadableTime(deltaTime);
             this.updateTimer(time);
         }, 1000);
-
-
     }
+
     getReadableTime(time) {
         const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
         const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
@@ -37,7 +37,7 @@ class CountdownTimer {
 
 const timer = new CountdownTimer({
     selector: '#timer-1',
-    targetDate: new Date('Jul 17, 2021'),
+    targetDate: new Date(TARGET_DATE),
     updateTimer: updateTimerFn
 });
 
